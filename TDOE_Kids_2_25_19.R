@@ -58,13 +58,7 @@ TDOE_Kids_TestOnly$Age <- with(TDOE_Kids_TestOnly, ifelse(Age %in% c("19990001",
 TDOE_Kids_NoPersev <- TDOE_Kids_TestOnly %>% filter(!Subject %in% c("19990009", "19990012",
                                                                     "19990013", "19990014"))
 
-#(old) Remove participants 19990009, 19990012, 19990013, 19990014 (side perseveration), possibly 19990015
-#TDOE_Kids_No09 <- TDOE_Kids_TestOnly[TDOE_Kids_TestOnly$Subject != "19990009", ]
-#TDOE_Kids_No12 <- TDOE_Kids_No09[TDOE_Kids_No09$Subject != "19990012", ]
-#TDOE_Kids_No13 <- TDOE_Kids_No12[TDOE_Kids_No12$Subject != "19990013", ]
-#TDOE_Kids_NoPersev <- TDOE_Kids_No13[TDOE_Kids_No13$Subject != "19990014", ]
-
-#Remove excess columns from related to practice trial stimuli
+#Remove excess columns from related to practice trials
 TDOE_Kids <- TDOE_Kids_NoPersev[, -c(7, 13:14, 17:19)]
 
 #Print column names
@@ -252,7 +246,7 @@ ACC_Window_Mean
 #Creates the graph of the rolling mean; Condition 1 = DOP, 2 = NOP
 ggplot(data=ACC_Window_Mean, aes(x=WindowNum, y=Mean.ACC, colour=factor(Group))) + 
   geom_line(stat = "identity", position = "dodge")+
-  xlab("Averaged Trial") + ylab("Mean Accuracy (Kids)") + ggtitle("DOE Learning Progression by Condition") +
+  xlab("Averaged Trial") + ylab("Mean Accuracy (6 yrs)") + ggtitle("DOE Learning Progression by Condition") +
   coord_cartesian(xlim = c(0, 50), ylim = c(0.0, 1.0)) +        
   labs(colour="Condition") +
   theme(plot.title = element_text(colour="Black", size=20, face="bold"), 
@@ -309,7 +303,7 @@ ACC_Bin
 #Creates the graph of the averaged binned trials; Condition 1 = DOP, 2 = NOP
 ggplot(data=ACC_Bin, aes(x=BinNum, y=Bin_ACC, colour=factor(Group))) + 
   geom_line(stat="identity", position= "identity")+
-  xlab("Averaged Trials in Bins of 5") + ylab("Mean Accuracy (Kids)") + ggtitle("DOE Learning Progression By Condition") +
+  xlab("Averaged Trials in Bins of 5") + ylab("Mean Accuracy (6 yrs)") + ggtitle("DOE Learning Progression By Condition") +
   coord_cartesian(xlim = c(0, 11), ylim = c(0.0, 1.0)) +        
   scale_fill_brewer(palette="Dark2", name = "Orientation") +
   labs(colour="Condition") +

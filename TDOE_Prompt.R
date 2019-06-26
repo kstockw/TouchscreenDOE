@@ -1,4 +1,3 @@
-setwd ("/Users/kaydenstockwell/Desktop/Prelim Analysis/Touchscreen/TouchscreenDOE")
 library(reshape2)
 library(gtools) 
 library(lme4)

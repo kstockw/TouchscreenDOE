@@ -1,5 +1,5 @@
 #Found on StackOverflow: https://stackoverflow.com/questions/12544888/is-there-an-equivalent-r-function-to-stata-order-command/18420673#18420673
-#by user A5C1D2H2I1M1N2O1R2T1; put in seperate source function script?
+#by user A5C1D2H2I1M1N2O1R2T1
 moveme <- function(invec, movecommand) {
   movecommand <- lapply(strsplit(strsplit(movecommand, ";")[[1]], ",|\\s+"), 
                         function(x) x[x != ""])

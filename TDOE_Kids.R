@@ -19,7 +19,7 @@ library(lmerTest)
 library(languageR)
 library(doBy)
 rm(list=ls())
-
+ls()  ##check
 
 ##############################################
 ###########Code DOE EPrime Analysis###########
